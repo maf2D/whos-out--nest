@@ -20,7 +20,7 @@ async function bootstrap() {
   // cookie parser
   app.use(cookieParser());
 
-  await app.listen(configService.get('APP_PORT') || 3001);
+  await app.listen(configService.get('PORT') || 3001);
 }
 
 bootstrap();
