@@ -12,7 +12,10 @@ async function bootstrap() {
   const configService = app.get(ConfigService);
 
   // enable cors
-  app.enableCors();
+  app.enableCors({
+    origin: 'https://whos-out.maf2d.com',
+    credentials: true
+  });
 
   // set global prefix
   app.setGlobalPrefix('api/v1');
