@@ -15,6 +15,7 @@ import { ResponseInterceptor } from './interceptors/response.interceptor';
 
 @Module({
   imports: [
+
     // app modules
     UsersModule,
     AuthModule,
@@ -22,7 +23,11 @@ import { ResponseInterceptor } from './interceptors/response.interceptor';
     // config
     ConfigModule.forRoot({
       isGlobal: true,
-      envFilePath: `.env.${process.env.NODE_ENV}`,
+
+      // use env files only when it's not heroku
+      ...(process.env.APP_HOST !== 'heroku' && {
+        envFilePath: `.env.${process.env.NODE_ENV}`
+      })
     }),
 
     // jwt config
