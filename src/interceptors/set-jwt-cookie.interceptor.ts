@@ -20,12 +20,13 @@ export class SetJwtCookieInterceptor implements NestInterceptor {
         const cookieOptions = {
           httpOnly: true,
           secure: false,
+          sameSite: 'None',
           maxAge:
             parseInt(this.configService.get('JWT_COOKIE_EXPIRES_IN')) *
             24 *
             60 *
             60 *
-            1000,
+            1000
         };
 
         if (this.configService.get('NODE_ENV') === 'production') {
