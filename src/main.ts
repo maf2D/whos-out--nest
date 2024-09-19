@@ -10,6 +10,7 @@ async function bootstrap() {
 
   // enable cors
   app.enableCors({
+    origin: 'https://whos-out.maf2d.com',
     credentials: true
   });
 
